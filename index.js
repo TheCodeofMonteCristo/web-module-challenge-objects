@@ -56,14 +56,14 @@ const burger = {
   discount: function(person){
     if(person === 'teacher' || person === 'student'){
       return this.price - (this.price * 0.25);
-    else if(person === 'public'){
+    }else if(person === 'public'){
       return this.price - (this.price * 0.10);
     }else{
       return 'no discount for you!';    
     }
   }
 }
-}
+
 console.log('task 2:', burger.discount('teacher'));
 
 
@@ -110,9 +110,17 @@ Use the addReview function below to do the following:
 */
 
 
-function addReview(/*Your Code Here */){
+//function addReview(/*Your Code Here */){
   /*Your Code Here */
+//}
+
+function addReview(thisArray, human, rank, opinion){
+  const newData = {name: human, rating: rank, feedback: opinion};
+  thisArray.push(newData);
+  return thisArray;
 }
+console.log(addReview(reviews,'Billy', 2, 'Loren ipsum!'));
+
 
 
 
@@ -127,12 +135,20 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(array, number) {
-  return '${array[number].name} gave the restraurant a ${array[number].rating} star review, and their feedback was ${array[number].feedback}';
+function getReviewByIndex(myArray, index) {
+  return `${myArray[index].name} gave the restaurant a ${myArray[index].rating} star review, and their feedback was: ${myArray[index].feedback}`
+}
+console.log(getReviewByIndex(reviews, 3));
+
+
+
+/*
+function getReviewByIndex(array, number){
+  return '${array[number].name} gave the restaurant a ${array[number].rating} star review, and their feedback was: ${array[number].feedback}';
 }
 
 console.log('task 7:', getReviewByIndex(reviews, 4));
-  
+  */
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -140,7 +156,7 @@ Write a function to get information about the most recent (last) review called `
 Use the getLastReview function below to do the following:
   1. Receive an array as a parameter; invoke with the reviews array as an argument
   2. Return the last index as a string in the format: "{name} gave the restaurant a {rating} star review, and their feedback was: {feedback}"
-  3. Invoke the function with the reviews array as the argument
+  3. Invoke the function with the reviews array as the ar6gument
   
   For example: getLastReview(reviews) would return: "Reyna gave the restaurant a 3.5 star review, and their feedback was: this place is chill with really cool people, great for getting work done on weekdays".
   NOTE: her feedback should not be blank if task 4 was done correctly
@@ -148,8 +164,9 @@ Use the getLastReview function below to do the following:
 
 
 function getLastReview(array) {
-  return '${array[array.length -1].name} gave the restaurant a ${array[array.length -1].rating} star review, and their feedback was: ${array[array.length -1].feedback}';
+  return `${array[array.length -1].name} gave the restaurant a ${array[array.length -1].rating} star review, and their feedback was: ${array[array.length -1].feedback}`;
 } 
+
 console.log('Task 7:', getLastReview(reviews));
 
 
